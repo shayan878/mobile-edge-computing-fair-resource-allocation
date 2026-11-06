@@ -18,5 +18,5 @@ def test_both_model_builders_create_expected_components(params):
 
 def test_sca_expansion_point_is_mutable(params):
     model = build_proportional_fair_model(params)
-    model.xk[1] = float(model.xk[1]) + 0.01
-    assert float(model.xk[1]) > 0
+    model.xk[1] = pyomo.value(model.xk[1]) + 0.01
+    assert pyomo.value(model.xk[1]) > 0
