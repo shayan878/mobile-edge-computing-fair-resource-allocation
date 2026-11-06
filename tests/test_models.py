@@ -1,6 +1,8 @@
 import pytest
-pyomo = pytest.importorskip("pyomo.environ")
+from pyomo import environ as pyomo
+
 from mec_fair_allocation.models import build_max_min_model, build_proportional_fair_model
+
 
 def test_both_model_builders_create_expected_components(params):
     proportional = build_proportional_fair_model(params)
@@ -13,6 +15,7 @@ def test_both_model_builders_create_expected_components(params):
     assert len(max_min.power_budget) == 3
     assert len(max_min.offloading_rate) == 3
     assert max_min.objective.sense == pyomo.maximize
+
 
 def test_sca_expansion_point_is_mutable(params):
     model = build_proportional_fair_model(params)
