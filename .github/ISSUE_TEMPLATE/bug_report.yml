@@ -1,0 +1,26 @@
+name: Bug report
+description: Report a reproducible problem in the model, solver workflow, or documentation.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+      description: Describe the observed behavior and expected behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction steps
+      description: Include the command, configuration (remove sensitive data), and solver version.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Python, Pyomo, solver, OS, and repository commit.
+    validations:
+      required: true
