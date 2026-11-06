@@ -1,4 +1,3 @@
-import pytest
 from pyomo import environ as pyomo
 
 from mec_fair_allocation.models import build_max_min_model, build_proportional_fair_model
