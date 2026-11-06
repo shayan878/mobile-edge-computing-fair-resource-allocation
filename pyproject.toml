@@ -1,0 +1,43 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mec-fair-allocation"
+version = "0.2.0"
+description = "Proportional-fair and max-min-fair resource allocation models for NOMA-enabled mobile edge computing."
+readme = "README.md"
+requires-python = ">=3.10"
+maintainers = [{ name = "Shayan Daneshyar" }]
+keywords = ["mec", "noma", "resource-allocation", "fairness", "optimization", "pyomo", "sca"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Science/Research",
+  "Topic :: Scientific/Engineering :: Mathematics",
+  "Topic :: Scientific/Engineering :: Telecommunications",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+]
+dependencies = ["pyomo>=6.8,<7"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "ruff>=0.6,<1", "build>=1.2,<2"]
+
+[project.scripts]
+mec-fair-allocation = "mec_fair_allocation.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mec_fair_allocation"]
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
